@@ -1,14 +1,17 @@
 document.getElementById('clicked').addEventListener('click', function () {
     const inputCatch = document.getElementById("showText").value;
 
-    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${inputCatch}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${inputCatch}`)
         .then(res => res.json())
         .then(data => {
 
             const allRecipesItem = document.getElementById('allRecipes')
             let html = "";
             const mealID = data.idMeal;
-            if (data.meals) {
+            if (inputCatch == "") {
+                alert('Please try again.')
+            }
+            else {
                 data.meals.forEach(meal => {
                     html += `
                     <div onclick = "thisMeal(${meal.idMeal})" id = "mealItemClick" class = "meal-item">
@@ -19,12 +22,6 @@ document.getElementById('clicked').addEventListener('click', function () {
 
 
                 });
-            } else {
-                html = `
-                <div class = "textCenter">
-                    <p>Sorry, we didn't find any meal!</p>
-                </div>
-            `;
             }
             allRecipesItem.innerHTML = html;
 
