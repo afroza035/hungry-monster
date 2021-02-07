@@ -1,0 +1,33 @@
+
+
+.input-group{
+    width: 600px;
+}
+.meal-item{
+    border: 1px solid #fff;
+    margin: 30px 10px ;
+    text-align: center;
+    
+}
+#allRecipes{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+
+}
+.meal-item img {
+    width: 300px;
+
+}
+.textCenter{
+    text-align: center !important;
+    margin: 0 auto;
+}
+.styleIngredient{
+    width: 600px;
+    margin: 0 auto;
+
+}
+.styleIngredient img{
+    width: 90%;
+}
